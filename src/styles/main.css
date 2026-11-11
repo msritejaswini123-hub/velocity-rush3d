@@ -1,0 +1,184 @@
+/* VELOCITY RUSH 3D - Global Styles & Design System */
+
+:root {
+  --primary-glow: #00f0ff;
+  --primary-accent: #00b4d8;
+  --boost-color: #00ffff;
+  --nitro-glow: #9900ff;
+  --danger-color: #ff0055;
+  --warning-color: #ffaa00;
+  --success-color: #00ff88;
+  --gold-color: #ffd700;
+
+  --bg-dark: rgba(10, 14, 22, 0.92);
+  --bg-card: rgba(18, 24, 38, 0.85);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(0, 240, 255, 0.4);
+
+  --font-racing: 'Montserrat', 'Segoe UI', -apple-system, sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #080c14;
+  font-family: var(--font-racing);
+  color: #ffffff;
+}
+
+#game-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#webgl-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* UI Root Overlay Layer */
+#ui-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.interactive {
+  pointer-events: auto;
+}
+
+/* Glassmorphism Generic Card */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Arcade Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-family: var(--font-racing);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00f0ff 0%, #0077b6 100%);
+  color: #03121e;
+  border: 1px solid #70f4ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.45);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #48f6ff 0%, #0096c7 100%);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, #ff5500 0%, #d90429 100%);
+  color: #ffffff;
+  border: 1px solid #ff7733;
+  box-shadow: 0 0 20px rgba(255, 85, 0, 0.4);
+}
+
+.btn-accent:hover {
+  background: linear-gradient(135deg, #ff7733 0%, #ef233c 100%);
+  box-shadow: 0 0 30px rgba(255, 85, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(30, 41, 59, 0.85);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary:hover {
+  background: rgba(45, 60, 85, 0.95);
+  border-color: rgba(0, 240, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+/* Modals & Screens Base */
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.screen.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Floating Animations */
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.6)); }
+  50% { filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.9)); }
+}
+
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
